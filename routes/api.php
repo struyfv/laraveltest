@@ -17,3 +17,20 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['prefix' => 'artist'], function () {
+
+    Route::post('create', 'App\Http\Controllers\Api\ArtistController@create')->name('api.artist.create');
+});
+
+Route::group(['prefix' => 'album'], function () {
+
+    Route::post('create', 'App\Http\Controllers\Api\AlbumController@create')->name('api.album.create');
+});
+
+Route::group(['prefix' => 'song'], function () {
+
+    Route::post('create', 'App\Http\Controllers\Api\SongController@create')->name('api.song.create');
+});
+
+

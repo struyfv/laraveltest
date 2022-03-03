@@ -18,7 +18,7 @@ class CreateAlbumsTable extends Migration
             $table->string('name');
             $table->foreignId('artist_id');
             $table->integer('price_without_vat');
-            $table->integer('vat_value');
+            $table->integer('vat_value')->nullable();
             $table->timestamps();
         });
     }
