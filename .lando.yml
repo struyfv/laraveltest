@@ -1,0 +1,40 @@
+name: laraveltest
+recipe: laravel
+config:
+  php: '8.0'
+  webroot: .
+
+proxy:
+  appserver:
+    - laraveltest.lndo.site
+  mailhog:
+    - mail.laraveltest.lndo.site
+  pma:
+    - pma.laraveltest.lndo.site
+
+
+services:
+  webserver:
+    type: apache:2.4
+    ssl: true
+  database:
+    type: mysql:5.7
+    portforward: 33068
+
+  # This container will catch all mails that your application will try to send. And show them in a slick interface.
+  # https://docs.devwithlando.io/services/mailhog.html
+  pma:
+    type: phpmyadmin
+    hosts:
+      - database
+# This will add some tools from the containers to the command line of your OS.
+# https://docs.devwithlando.io/config/tooling.html
+tooling:
+  npm:
+    service: node
+  node:
+    service: noder
+  yarn:
+    service: node
+  gulp:
+    service: node
