@@ -11,4 +11,15 @@ class Song extends Model
 
     protected $fillable = ['name', 'album_id', 'length'];
 
+    /* RELATIONSSHIPS*/
+
+    /**
+     * Get the album that owns the song
+     */
+    public function album()
+    {
+        return $this->belongsTo(Album::class);
+    }
+
 }
+

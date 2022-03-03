@@ -21,6 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'artist'], function () {
 
     Route::post('create', 'App\Http\Controllers\Api\ArtistController@create')->name('api.artist.create');
+    Route::get('get/{id}', 'App\Http\Controllers\Api\ArtistController@get')->name('api.artist.get');
 });
 
 Route::group(['prefix' => 'album'], function () {
@@ -31,6 +32,7 @@ Route::group(['prefix' => 'album'], function () {
 Route::group(['prefix' => 'song'], function () {
 
     Route::post('create', 'App\Http\Controllers\Api\SongController@create')->name('api.song.create');
+    Route::post('delete/{id}', 'App\Http\Controllers\Api\SongController@delete')->name('api.song.delete');
 });
 
 

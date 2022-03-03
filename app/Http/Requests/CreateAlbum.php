@@ -25,7 +25,8 @@ class CreateAlbum extends FormRequest
     {
         return [
             'name' => 'required',
-            'artist_id' => 'required'
+            'artist_id' => 'required',
+            'price_without_vat' => 'required'
         ];
     }
 }

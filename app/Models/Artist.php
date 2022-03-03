@@ -10,4 +10,14 @@ class Artist extends Model
     use HasFactory;
 
     protected $fillable = ['name'];
+
+    /* RELATIONSSHIPS*/
+
+    /**
+     * Get the album for the artist
+     */
+    public function albums()
+    {
+        return $this->hasMany(Album::class);
+    }
 }
