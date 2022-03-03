@@ -27,4 +27,11 @@ class ArtistController extends Controller
 
         return response()->json(['success' => false, 'message' => 'The artist doesn\'t exists']);
     }
+
+    public function getAll(){
+        $artists = Artist::with('albums', 'albums.songs')->paginate(5);
+
+        return response()->json(['success' => true, 'artist' => $artists]);
+
+    }
 }

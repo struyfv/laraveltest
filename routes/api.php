@@ -21,6 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'artist'], function () {
 
     Route::post('create', 'App\Http\Controllers\Api\ArtistController@create')->name('api.artist.create');
+    Route::get('get/all', 'App\Http\Controllers\Api\ArtistController@getAll')->name('api.artist.getAll');
     Route::get('get/{id}', 'App\Http\Controllers\Api\ArtistController@get')->name('api.artist.get');
 });
 
