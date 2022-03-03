@@ -27,12 +27,15 @@ Route::group(['prefix' => 'artist'], function () {
 Route::group(['prefix' => 'album'], function () {
 
     Route::post('create', 'App\Http\Controllers\Api\AlbumController@create')->name('api.album.create');
+    Route::get('get/{id}', 'App\Http\Controllers\Api\AlbumController@get')->name('api.album.get');
 });
 
 Route::group(['prefix' => 'song'], function () {
 
     Route::post('create', 'App\Http\Controllers\Api\SongController@create')->name('api.song.create');
-    Route::post('delete/{id}', 'App\Http\Controllers\Api\SongController@delete')->name('api.song.delete');
+    Route::delete('delete/{id}', 'App\Http\Controllers\Api\SongController@delete')->name('api.song.delete');
+    Route::get('get/{id}', 'App\Http\Controllers\Api\SongController@get')->name('api.song.get');
+
 });
 
 

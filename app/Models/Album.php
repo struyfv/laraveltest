@@ -31,7 +31,7 @@ class Album extends Model
     /**
      * Get the artist that owns the album
      */
-    public function album()
+    public function artist()
     {
         return $this->belongsTo(Artist::class);
     }

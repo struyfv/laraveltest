@@ -29,4 +29,14 @@ class AlbumController extends Controller
         return response()->json(['success' => false, 'message' => 'The artist doesn\'t exists']);
 
     }
+
+    public function get($id){
+        $album = Album::with('artist','songs')->find($id);
+
+        if($album){
+            return response()->json(['success' => true, 'album' => $album->toArray()]);
+        }
+
+        return response()->json(['success' => false, 'message' => 'The album doesn\'t exists']);
+    }
 }

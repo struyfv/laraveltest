@@ -40,4 +40,14 @@ class SongController extends Controller
         return response()->json(['success' => false, 'message' => 'The song could not be found']);
 
     }
+
+    public function get($id){
+        $song = Song::with('album','album.artist')->find($id);
+
+        if($song){
+            return response()->json(['success' => true, 'song' => $song->toArray()]);
+        }
+
+        return response()->json(['success' => false, 'message' => 'The song doesn\'t exists']);
+    }
 }

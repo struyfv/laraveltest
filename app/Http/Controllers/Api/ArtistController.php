@@ -26,7 +26,5 @@ class ArtistController extends Controller
         }
 
         return response()->json(['success' => false, 'message' => 'The artist doesn\'t exists']);
-
-
     }
 }
